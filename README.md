@@ -99,3 +99,42 @@ root.render(
 ```
 
 ---
+
+## --Video 269 : Working with Links
+
+- for navigation we need to use <Link> component from react-router-dom
+- it is a wrapper component which takes a path prop and renders a anchor tag with href prop set to the path prop
+- it also takes a className prop which is passed to the anchor tag
+- it also takes a onClick prop which is passed to the anchor tag
+- it helps to crate an illusiond of navigation between pages for the users expereince
+
+```js
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
+function App() {
+  return (
+    <div>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/welcome">Welcome</Link>
+            </li>
+            <li>
+              <Link to="/products">Products</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <Route path="/welcome">
+          <Welcome />
+        </Route>
+        <Route path="/products">
+          <Products />
+        </Route>
+      </main>
+    </div>
+  );
+}
+```
