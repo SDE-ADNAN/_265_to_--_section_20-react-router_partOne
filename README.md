@@ -245,3 +245,37 @@ return (
   </section>
 );
 ```
+
+---
+
+## --Video 273 : Using "Switch" and "exact" for configuring routes
+
+### About Switch
+
+1. Switch is a wrapper component provided by react-router-dom which is used to wrap the routes
+2. it is used to render only one route at a time
+3. it is helpfull when we have multiple routes which have same path but different components like "/products" and "/products/:productId"
+4. it renders the first route which matches the path and ignores the rest starting from the top of the routes and searching for a match till bottom.
+
+### About exact
+
+1. exact is a prop which is passed to the Route component
+2. it is used to match the path exactly
+3. in default behaviour we write "/products" and "/products/:productId" and when we go to "/products" it renders both the routes as both the routes have "/products" in their path
+4. to avoid this we use exact prop in the "/products" route so that it matches the path exactly and renders only that route only when the path is "/products" and not when it is "/products/:productId" or any other path which starts with "/products"
+
+```js
+<Switch>
+  <Route path="/welcome">
+    <Welcome />
+  </Route>
+  // for only "/products" path this below route will be rendered due to exact prop
+  and will not render if route is "/productsasdfcs" or "/produc"
+  <Route path="/products" exact>
+    <Products />
+  </Route>
+  <Route path="/products/:productId">
+    <ProductDetail />
+  </Route>
+</Switch>
+```
