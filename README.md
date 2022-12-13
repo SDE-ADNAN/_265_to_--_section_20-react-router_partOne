@@ -222,3 +222,26 @@ export default MainHeader;
   <ProductDetail />
 </Route>
 ```
+
+---
+
+## --Video 272 : Extracting Route Params
+
+1. here we learnt to extract the params from the route
+2. we can use the useParams hook to extract the params from the route
+3. it is helpfull when we want to use the params in the component which is rendered by the route
+4. useParams hook returns an object which has the params as key value pairs
+
+```js
+"/product-detail/:productId"; // if this is the url
+// here we are using the useParams hook to extract the params from the route
+const params = useParams();
+//params object looks like this
+//     {productId: "some entered Value"}
+return (
+  <section>
+    <h1>{params.productId}</h1>
+    <p>{params.productId}</p>
+  </section>
+);
+```
