@@ -106,7 +106,7 @@ root.render(
 - it is a wrapper component which takes a path prop and renders a anchor tag with href prop set to the path prop
 - it also takes a className prop which is passed to the anchor tag
 - it also takes a onClick prop which is passed to the anchor tag
-- it helps to crate an illusiond of navigation between pages for the users expereince
+- it helps to crate an illusion of navigation between pages for the users expereince
 
 ```js
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
