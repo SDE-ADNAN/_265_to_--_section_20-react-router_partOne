@@ -210,3 +210,15 @@ export default MainHeader;
 ---
 
 ## --Video 271 : Adding dynamic routes with params
+
+1. here we learnt to add dynamic routes with params
+2. the params are the values which are passed to the route and are used to render different components
+3. we can use the params in the component which is rendered by the route
+4. it is helpfull when showing individual items of a list in more detail
+
+```js
+// here we are using the (":productId")param to show the product detail of the product which is clicked
+<Route path="/product-detail/:productId">
+  <ProductDetail />
+</Route>
+```
