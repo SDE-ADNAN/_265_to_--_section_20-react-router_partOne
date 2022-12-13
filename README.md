@@ -138,3 +138,75 @@ function App() {
   );
 }
 ```
+
+---
+
+## --Video 270 : Using NavLinks
+
+1. NavLink is a wrapper component which takes a path prop and renders a anchor tag with href prop set to the path prop.
+2. it takes a activeClassName prop which is passed to the anchor tag when it is active.
+3. it is very helpfull when we want to style the active link in a header component.
+
+code before:
+
+```js
+import React from "react";
+import { Link } from "react-router-dom";
+
+import classes from "./MainHeader.module.css";
+
+const MainHeader = () => {
+  return (
+    <header className={classes.header}>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/welcome">Welcome</Link>
+          </li>
+          <li>
+            <Link to="/products">Products</Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
+
+export default MainHeader;
+```
+
+After using NavLink:
+
+```js
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+
+import classes from "./MainHeader.module.css";
+
+const MainHeader = () => {
+  return (
+    <header className={classes.header}>
+      <nav>
+        <ul>
+          <li>
+            <NavLink activeClassName={classes.active} to="/welcome">
+              Welcome
+            </NavLink>
+          </li>
+          <li>
+            <NavLink activeClassName={classes.active} to="/products">
+              Products
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
+
+export default MainHeader;
+```
+
+---
+
+## --Video 271 : Adding dynamic routes with params
