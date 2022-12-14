@@ -279,3 +279,49 @@ return (
   </Route>
 </Switch>
 ```
+
+---
+
+## --Video 274 : Working with nested routes
+
+1. here we learnt to use nested routes
+2. nested routes are routes which are nested inside other routes like
+   - "/products" is a route
+   - "/products/:productId" is a nested route
+   - "/products/:productId/reviews" is a nested route inside "/products/:productId"
+3. we can use nested routes to show the details of a product and the reviews of that product in the same page
+4. its just like dynamic routes , the nested route is only rendered when the parent route is rendered
+
+```js
+// here we are using nested routes
+// "/products" is a route
+// "/products/:productId" is a nested route
+// "/products/:productId/reviews" is a nested route inside "/products/:productId"
+<Switch>
+  <Route path="/welcome">
+    <Welcome />
+  </Route>
+  <Route path="/products" exact>
+    <Products />
+  </Route>
+  <Route path="/products/:productId">
+    <ProductDetail />
+  </Route>
+  <Route path="/products/:productId/reviews">
+    <ProductReviews />
+  </Route>
+</Switch>;
+
+// and welcome.js looks like this
+const Welcome = () => {
+  return (
+    <section>
+      <h1>The Welcome Page</h1>
+      // this is a nested route
+      <Route path="/welcome/new-user">
+        <p>Welcome, new user!</p>
+      </Route>
+    </section>
+  );
+};
+```
