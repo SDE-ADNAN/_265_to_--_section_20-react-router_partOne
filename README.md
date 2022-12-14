@@ -325,3 +325,51 @@ const Welcome = () => {
   );
 };
 ```
+
+---
+
+## --Video 275 : Redirecting the User
+
+1. here we learnt to redirect the user to a different route
+2. we can use the Redirect component provided by react-router-dom to redirect the user to a different route
+3. it is helpfull when we want to redirect the user to a different route when a condition is met
+
+```js
+// here we are using the Redirect component to redirect the user to a different route
+// if the user is not authenticated then he will be redirected to the login page
+// if the user is authenticated then he will be redirected to the products page
+// we can use the Redirect component inside the Switch component
+<Switch>
+  <Route path="/welcome">
+    <Welcome />
+  </Route>
+  <Route path="/products" exact>
+    <Products />
+  </Route>
+  <Route path="/products/:productId">
+    <ProductDetail />
+  </Route>
+  <Route path="/products/:productId/reviews">
+    <ProductReviews />
+  </Route>
+  // if the user is not authenticated then he will be redirected to the login page
+  // if the user is authenticated then he will be redirected to the products page
+  <Route path="/auth">
+    {isAuth ? <Redirect to="/products" /> : <Auth />}
+  </Route>
+  <Redirect to="/welcome" />
+</Switch>;
+
+
+// this is also a valid example
+
+<Route path="/" exact>
+  <Redirect to="/welcome" />
+</Route>
+<Route path="/welcome">
+  <Welcome />
+</Route>
+
+```
+
+---
