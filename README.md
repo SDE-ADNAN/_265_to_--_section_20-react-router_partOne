@@ -373,3 +373,10 @@ const Welcome = () => {
 ```
 
 ---
+
+## --Video 276 : Time to practice (onwards to a new project)
+
+1. here we are provided with an empty project setup file which we will use to practice
+   react-router by building multiple pages.
+   and using many other features of react-router.
+2. added the \_276_to_292_sec_20_practice_project folder in which we will practice realworld scenarios and use react-router at its full potential.
