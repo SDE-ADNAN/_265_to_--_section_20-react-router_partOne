@@ -416,3 +416,9 @@ code of App.js
 ```
 
 ---
+
+## --Video 277 : Practice Redirecting and extracting params
+
+1. used useParams() hook to extract the params from the url and use them in the component
+
+2. also used Redirect component to redirect the user to a different route
