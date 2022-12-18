@@ -429,3 +429,45 @@ code of App.js
 
 1. used nested routes to show the details of a quote and the comments of that quote in the same page
 2. used the useParams() hook to extract the params from the url and use them in the component
+
+---
+
+## --Video 279 : Adding a Layout Wrapper Component
+
+1. made a layout component which will wrap all the components and will contain the navigation links
+2. used the NavLink component to add the navigation links
+
+code is below
+
+```js
+const Layout = (props) => {
+  return (
+    <Fragment>
+      <MainNavigation />
+      <main className={classes.main}>{props.children}</main>
+    </Fragment>
+  );
+};
+
+const MainNavigation = () => {
+  return (
+    <header className={classes.header}>
+      <div className={classes.logo}>Great Quotes</div>
+      <nav className={classes.nav}>
+        <ul>
+          <li>
+            <NavLink to="/quotes" activeClassName={classes.active}>
+              All Quotes
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/new-quote" activeClassName={classes.active}>
+              Add a Quote
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
+```
