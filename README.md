@@ -422,3 +422,10 @@ code of App.js
 1. used useParams() hook to extract the params from the url and use them in the component
 
 2. also used Redirect component to redirect the user to a different route
+
+---
+
+## --Video 278 : practicing nested routes
+
+1. used nested routes to show the details of a quote and the comments of that quote in the same page
+2. used the useParams() hook to extract the params from the url and use them in the component
