@@ -380,3 +380,39 @@ const Welcome = () => {
    react-router by building multiple pages.
    and using many other features of react-router.
 2. added the \_276_to_292_sec_20_practice_project folder in which we will practice realworld scenarios and use react-router at its full potential.
+
+3. created three components
+
+   - AllQuotes.js
+   - QuoteDetail.js
+   - NewQuote.js
+
+4. created three routes in \_276_to_292_sec_20_practice_project 's App.js
+
+   - "/quotes" for AllQuotes.js
+   - "/quotes/:quoteId" for QuoteDetail.js
+   - "/new-quote" for NewQuote.js
+
+5. used the exact prop in the "/quotes" route so that it renders only when the path is "/quotes" and not when it is "/quotes/:quoteId"
+
+6. used the Switch component to render only one route at a time.
+
+7. used the `<BrowserRouter>` component to wrap the App.js component which will activate the react-router-dom features in the App.js component
+
+code of App.js
+
+```js
+<Switch>
+  <Route path="/quotes" exact>
+    <AllQuotes />
+  </Route>
+  <Route path="/quotes/:quoteId">
+    <QuoteDetail />
+  </Route>
+  <Route path="/new-quote">
+    <NewQuote />
+  </Route>
+</Switch>
+```
+
+---
