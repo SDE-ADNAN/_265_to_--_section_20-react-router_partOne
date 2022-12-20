@@ -471,3 +471,116 @@ const MainNavigation = () => {
   );
 };
 ```
+
+## --Video 280 : Adding Dummy Data & More Content
+
+1. added dummy data in the AllQuotes.js component.
+2. used the map() method to render the dummy data in the AllQuotes.js component.
+
+code for AllQuotes.js
+
+```js
+const DUMMY_QUOTES = [
+  { id: "q1", author: "Max", text: "Learning React is fun!" },
+  { id: "q2", author: "Maximilian", text: "Learning React is great!" },
+];
+
+const AllQuotes = () => {
+  return <QuoteList quotes={DUMMY_QUOTES} />;
+};
+
+export default AllQuotes;
+```
+
+Code for QuoteList.js
+
+```js
+const QuoteList = (props) => {
+  return (
+    <Fragment>
+      <ul className={classes.list}>
+        {props.quotes.map((quote) => (
+          <QuoteItem
+            key={quote.id}
+            id={quote.id}
+            author={quote.author}
+            text={quote.text}
+          />
+        ))}
+      </ul>
+    </Fragment>
+  );
+};
+```
+
+Code for QuoteItem.js
+
+```js
+const QuoteItem = (props) => {
+  return (
+    <li className={classes.item}>
+      <figure>
+        <blockquote>
+          <p>{props.text}</p>
+        </blockquote>
+        <figcaption>{props.author}</figcaption>
+      </figure>
+      <a className="btn">View Fullscreen</a>
+    </li>
+  );
+};
+```
+
+3. also added the add-quote form.
+
+Code for NewQuote.js
+
+```js
+const NewQuote = () => {
+  const addQuoteHandler = (quoteData) => {
+    console.log(quoteData);
+  };
+
+  return <QuoteForm onAddQuote={addQuoteHandler} />;
+};
+
+const QuoteForm = (props) => {
+  const authorInputRef = useRef();
+  const textInputRef = useRef();
+
+  function submitFormHandler(event) {
+    event.preventDefault();
+
+    const enteredAuthor = authorInputRef.current.value;
+    const enteredText = textInputRef.current.value;
+
+    // optional: Could validate here
+
+    props.onAddQuote({ author: enteredAuthor, text: enteredText });
+  }
+
+  return (
+    <Card>
+      <form className={classes.form} onSubmit={submitFormHandler}>
+        {props.isLoading && (
+          <div className={classes.loading}>
+            <LoadingSpinner />
+          </div>
+        )}
+
+        <div className={classes.control}>
+          <label htmlFor="author">Author</label>
+          <input type="text" id="author" ref={authorInputRef} />
+        </div>
+        <div className={classes.control}>
+          <label htmlFor="text">Text</label>
+          <textarea id="text" rows="5" ref={textInputRef}></textarea>
+        </div>
+        <div className={classes.actions}>
+          <button className="btn">Add Quote</button>
+        </div>
+      </form>
+    </Card>
+  );
+};
+```
