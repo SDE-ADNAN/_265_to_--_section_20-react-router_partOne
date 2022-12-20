@@ -472,6 +472,8 @@ const MainNavigation = () => {
 };
 ```
 
+---
+
 ## --Video 280 : Adding Dummy Data & More Content
 
 1. added dummy data in the AllQuotes.js component.
@@ -585,8 +587,24 @@ const QuoteForm = (props) => {
 };
 ```
 
+---
+
 ## --Video 281 : Outputting Data on the "Details" Page
 
 1. used the useParams() hook to extract the params from the url and use them in the component
 2. used the find() method to find the quote with the id that is extracted from the url
 3. used the highlightedQuote component to show the details of the quote
+
+---
+
+## --Video 282 : Adding a "Not Found" Page
+
+1. used the Switch component to render only one route at a time.
+2. used the path="\*" to render the NotFound component when the url does not match any of the routes
+3. Code :
+
+```js
+<Route path="*">
+  <NotFound />
+</Route>
+```
