@@ -584,3 +584,9 @@ const QuoteForm = (props) => {
   );
 };
 ```
+
+## --Video 281 : Outputting Data on the "Details" Page
+
+1. used the useParams() hook to extract the params from the url and use them in the component
+2. used the find() method to find the quote with the id that is extracted from the url
+3. used the highlightedQuote component to show the details of the quote
