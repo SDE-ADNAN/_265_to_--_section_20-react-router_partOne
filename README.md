@@ -706,3 +706,55 @@ const QuoteForm = (props) => {
   );
 };
 ```
+
+---
+
+## --Video 285 : Working with Query Parameters
+
+1. used the useLocation() hook to get the location object which has the search property which contains the query parameters.
+2. used the URLSearchParams() constructor to get the query parameters as an object.
+3. used the query parameters to show a message when the user tries to add a quote without entering any data.
+4. it is benefitial when u r using the same component for different purposes.like sorting asc and dsc.
+
+Code:
+
+```js
+const QuoteList = (props) => {
+  const history = useHistory();
+  const location = useLocation();
+
+  const queryParams = new URLSearchParams(location.search);
+
+  const isSortingAscending = queryParams.get("sort") === "asc";
+
+  const sortedQuotes = props.quotes.sort((quoteA, quoteB) => {
+    if (isSortingAscending) {
+      return quoteA.id > quoteB.id ? 1 : -1;
+    } else {
+      return quoteA.id < quoteB.id ? 1 : -1;
+    }
+  });
+  function changeSortingHandler() {
+    history.push("/quotes?sort=" + (isSortingAscending ? "desc" : "asc"));
+  }
+  return (
+    <Fragment>
+      <div className={classes.sorting}>
+        <button onClick={changeSortingHandler}>
+          Sort {isSortingAscending ? "Descending" : "Ascending"}
+        </button>
+      </div>
+      <ul className={classes.list}>
+        {sortedQuotes.map((quote) => (
+          <QuoteItem
+            key={quote.id}
+            id={quote.id}
+            author={quote.author}
+            text={quote.text}
+          />
+        ))}
+      </ul>
+    </Fragment>
+  );
+};
+```
