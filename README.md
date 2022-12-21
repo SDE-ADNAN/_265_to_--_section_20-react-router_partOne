@@ -634,3 +634,75 @@ export default NewQuote;
 ```
 
 ---
+
+## --Video 284 : Preventing Possibly Unwanted Route Transitions with the "Prompt" Component
+
+1. used the Prompt component to show a message when the user tries to navigate to a different page without saving the data.
+2. used the useState() hook to set the isFormFocused state to true when the user focuses on the form and to false when the user blurs the form.
+3. used the isFormFocused state to show the prompt component when the user tries to navigate to a different page.
+
+USAGE :
+
+```js
+import { Prompt } from "react-router-dom";
+
+const QuoteForm = (props) => {
+  const authorInputRef = useRef();
+  const textInputRef = useRef();
+  const [isFormFocused, setIsFormFocused] = useState(false);
+
+  function submitFormHandler(event) {
+    event.preventDefault();
+
+    const enteredAuthor = authorInputRef.current.value;
+    const enteredText = textInputRef.current.value;
+
+    // optional: Could validate here
+
+    props.onAddQuote({ author: enteredAuthor, text: enteredText });
+  }
+
+  const focusFormHandler = () => {
+    setIsFormFocused(true);
+  };
+
+  const finishFormHandler = () => {
+    setIsFormFocused(false);
+  };
+
+  return (
+    <Card>
+      <Prompt
+        when={isFormFocused}
+        message={(location) =>
+          `Are you sure you want to leave? All your entered data will be lost! And visit ${location.pathname}`
+        }
+      />
+      <form
+        className={classes.form}
+        onSubmit={submitFormHandler}
+        onFocus={focusFormHandler}
+        onBlur={finishFormHandler}
+      >
+        {props.isLoading && (
+          <div className={classes.loading}>
+            <LoadingSpinner />
+          </div>
+        )}
+
+        <div className={classes.control}>
+          <label htmlFor="author">Author</label>
+          <input type="text" id="author" ref={authorInputRef} />
+        </div>
+        <div className={classes.control}>
+          <label htmlFor="text">Text</label>
+          <textarea id="text" rows="5" ref={textInputRef}></textarea>
+        </div>
+        <div className={classes.actions}>
+          <button className="btn">Add Quote</button>
+        </div>
+      </form>
+    </Card>
+  );
+};
+```
