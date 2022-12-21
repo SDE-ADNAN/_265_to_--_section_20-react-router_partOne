@@ -608,3 +608,29 @@ const QuoteForm = (props) => {
   <NotFound />
 </Route>
 ```
+
+## --Video 283 : Implementing Programmatic (Imperative) Navigation
+
+1. Programmatic navigation is used to navigate to a different page using javascript code.
+2. used the useHistory() hook to get the history object which has the push() method to navigate to a different page.
+
+USAGE :
+
+```js
+import { useHistory } from "react-router-dom";
+import QuoteForm from "../components/quotes/QuoteForm";
+
+const NewQuote = () => {
+  const history = useHistory();
+  const addQuoteHandler = (quoteData) => {
+    console.log(quoteData);
+    history.push("/quotes");
+  };
+
+  return <QuoteForm onAddQuote={addQuoteHandler} />;
+};
+
+export default NewQuote;
+```
+
+---
