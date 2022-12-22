@@ -758,3 +758,28 @@ const QuoteList = (props) => {
   );
 };
 ```
+
+---
+
+## -- Video 286 : Getting Creative With Nested Routes
+
+1. we used the react router's nested routes to show the comments of a quote on the details page. and also we are able to navigate to the comments page using the Link component along with the <Route> wrapper component to render the comments page conditionally like we used to do with the state based rendering.
+
+Code:
+
+```js
+<Fragment>
+  <HighlightedQuote text={quote.text} author={quote.author} />
+  <Route path={`/quotes/${params.quoteId}`} exact>
+    <div className="centered">
+      <Link className="btn--flat" to={`/quotes/${params.quoteId}/comments`}>
+        Load Comments
+      </Link>
+    </div>
+  </Route>
+
+  <Route path={`/quotes/${quote.quoteId}/comments`}>
+    <Comments />
+  </Route>
+</Fragment>
+```
