@@ -783,3 +783,55 @@ Code:
   </Route>
 </Fragment>
 ```
+
+---
+
+## --Video 287 : Writing More Flexible Routing Code
+
+1. we used the useRouteMatch() hook to get the match object which has the url property which contains the url of the current page.
+2. the match object looks like this:
+
+```js
+{
+  isExact: true,
+  params: {},
+  path: "/quotes/:quoteId",
+  url: "/quotes/q1"
+}
+```
+
+3. we can use the match.path property to get the path of the current page and use it to render the nested routes. this is more flexible than hardcoding the path. which requires us to change the path in multiple places if we change the path of the current page. in the topest level component we can use the match.url property to get the url of the current page and use it to render the nested routes.
+
+4. we can use the match.url property to get the url of the current page and use it to render the nested routes.
+   example:
+
+```js
+<Route path={`${match.path}`} exact>
+  <div className="centered">
+    <Link className="btn--flat" to={`${match.url}/comments`}>
+      Load Comments
+    </Link>
+  </div>
+</Route>
+
+<Route path={`${match.path}/comments`}>
+  <Comments />
+</Route>
+```
+
+5. we used the history.push() to also pass search filters to the target routes.
+   Like this:
+
+```js
+// Rather than using this hard coded and long path we use
+history.push(
+  `${location.pathname}?sort=${isSortingAscending ? "desc" : "asc"}`
+);
+
+// object based syntax for history.push()
+history.push({
+  pathname: location.pathname,
+  search: `?sort=${isSortingAscending ? "desc" : "asc"}`,
+});
+//  here history.push() takes an object as an argument and the object has two properties pathname and search. pathname is the path of the target route and search is the query parameters of the target route.
+```
