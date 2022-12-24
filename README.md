@@ -835,3 +835,11 @@ history.push({
 });
 //  here history.push() takes an object as an argument and the object has two properties pathname and search. pathname is the path of the target route and search is the query parameters of the target route.
 ```
+
+## --Video 288 : Sending & Getting Quote Data via Http
+
+1. added the api.js file to the project which contains the base url of the firebase database and the functions to send and get data from the database.
+2. added the useHttp() hook to the project which contains the functions to send and get data from the database.
+3. updated the api url in the api.js file to the firebase database url.
+4. added the logic to add quotes to the database in the addQuoteHandler() function in the NewQuote.js file. which updates the database and then updates the quotes state in the Quotes.js file.
+5. added the logic to get quotes from the database in the useEffect() hook in the Quotes.js file. which updates the quotes state in the Quotes.js file. by fetching the data from the database. and also added the logic to show a loading spinner while the data is being fetched from the database.
