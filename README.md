@@ -843,3 +843,5 @@ history.push({
 3. updated the api url in the api.js file to the firebase database url.
 4. added the logic to add quotes to the database in the addQuoteHandler() function in the NewQuote.js file. which updates the database and then updates the quotes state in the Quotes.js file.
 5. added the logic to get quotes from the database in the useEffect() hook in the Quotes.js file. which updates the quotes state in the Quotes.js file. by fetching the data from the database. and also added the logic to show a loading spinner while the data is being fetched from the database.
+6. added the logic to show an error message if there is an error while fetching the data from the database.
+7. for all the data fetching components like the quotedtail , comments , quotes we added the logic to show a loading spinner while the data is being fetched from the database and also added the logic to show an error message if there is an error while fetching the data from the database.
