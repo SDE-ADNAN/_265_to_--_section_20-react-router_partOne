@@ -1,5 +1,8 @@
 const FIREBASE_DOMAIN =
-  "https://react-sec-20-udemy-default-rtdb.firebaseio.com/";
+  // rhe api would be like this including an extra / at the end which is not needed
+  // "https://react-sec-20-udemy-default-rtdb.firebaseio.com/";
+  // so we remove the extra / at the end of the api url like this:
+  "https://react-sec-20-udemy-default-rtdb.firebaseio.com";
 
 export async function getAllQuotes() {
   const response = await fetch(`${FIREBASE_DOMAIN}/quotes.json`);
