@@ -845,3 +845,11 @@ history.push({
 5. added the logic to get quotes from the database in the useEffect() hook in the Quotes.js file. which updates the quotes state in the Quotes.js file. by fetching the data from the database. and also added the logic to show a loading spinner while the data is being fetched from the database.
 6. added the logic to show an error message if there is an error while fetching the data from the database.
 7. for all the data fetching components like the quotedtail , comments , quotes we added the logic to show a loading spinner while the data is being fetched from the database and also added the logic to show an error message if there is an error while fetching the data from the database.
+
+## --Video 289 : Adding the "Comments" Features
+
+1. added the logic for fetching all comments of a quote using its quoteId in the addCommentHandler() function in the Comments.js file and also added the logic to show a loading spinner while the data is being fetched from the database and also added the logic to show an error message if there is an error while fetching the data from the database.
+
+2. added the logic for displaying all the comments of a quote in the CommentsList.js file. and also added the logic to show a loading spinner while the data is being fetched from the database and also added the logic to show an error message if there is an error while fetching the data from the database.
+
+3. added the logic for adding a comment to a quote using its quoteId in the addCommentHandler() function in the NewCommentForm.js file and also added the logic to show a loading spinner while the data is being fetched from the database and also added the logic to show an error message if there is an error while fetching the data from the database.
