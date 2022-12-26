@@ -1,8 +1,4 @@
-import {
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom/cjs/react-router-dom.min";
+import { Route, Routes } from "react-router-dom";
 import MainHeader from "./components/MainHeader";
 import ProductDetail from "./pages/ProductDetail";
 import Products from "./pages/Products";
@@ -13,9 +9,9 @@ function App() {
     <div>
       <MainHeader />
       <main>
-        <Switch>
+        <Routes>
           <Route path="/" exact>
-            <Redirect to="/welcome" />
+            {/* <Redirect to="/welcome" /> */}
           </Route>
           <Route path="/welcome">
             <Welcome />
@@ -26,7 +22,7 @@ function App() {
           <Route path="/products/:productId">
             <ProductDetail />
           </Route>
-        </Switch>
+        </Routes>
       </main>
     </div>
   );
