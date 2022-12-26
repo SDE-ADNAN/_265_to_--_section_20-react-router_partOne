@@ -867,3 +867,43 @@ history.push({
 ```bash
 npm install react-router-dom@6
 ```
+
+2. updated the code to use the new react router v6 syntax. by replacing <Switch> with <Routes>
+
+```js
+<Switch>
+  <Route path="/" exact>
+    <Redirect to="/welcome" />
+  </Route>
+  <Route path="/welcome">
+    <Welcome />
+  </Route>
+  <Route path="/products" exact>
+    <Products />
+  </Route>
+  <Route path="/products/:productId">
+    <ProductDetail />
+  </Route>
+</Switch>
+```
+
+to this
+
+```js
+<Routes>
+  <Route path="/" exact>
+    // <Redirect to="/welcome" />
+  </Route>
+  <Route path="/welcome">
+    <Welcome />
+  </Route>
+  <Route path="/products" exact>
+    <Products />
+  </Route>
+  <Route path="/products/:productId">
+    <ProductDetail />
+  </Route>
+</Routes>
+```
+
+for just switch component
