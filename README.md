@@ -857,3 +857,13 @@ history.push({
 2. added the logic for displaying all the comments of a quote in the CommentsList.js file. and also added the logic to show a loading spinner while the data is being fetched from the database and also added the logic to show an error message if there is an error while fetching the data from the database.
 
 3. added the logic for adding a comment to a quote using its quoteId in the addCommentHandler() function in the NewCommentForm.js file and also added the logic to show a loading spinner while the data is being fetched from the database and also added the logic to show an error message if there is an error while fetching the data from the database.
+
+---
+
+## --Video 290 : Upgrading To React Router v6
+
+1. upgraded to react router v6. with the below command:
+
+```bash
+npm install react-router-dom@6
+```
