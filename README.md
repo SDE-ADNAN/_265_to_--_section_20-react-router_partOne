@@ -907,3 +907,9 @@ to this
 ```
 
 for just switch component
+
+now about the <BrowserRouter>
+
+- <BrowserRouter> component wrapper remains same as before.
+
+now about the <Route> component
