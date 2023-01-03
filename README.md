@@ -913,3 +913,46 @@ now about the <BrowserRouter>
 - <BrowserRouter> component wrapper remains same as before.
 
 now about the <Route> component
+
+for
+
+```js
+<Route path="/welcome">
+  <Welcome />
+</Route>
+```
+
+we write
+
+```js
+<Route path="/welcome" element={<Welcome />} />
+```
+
+and for
+
+```js
+<Route path="/products" exact>
+  <Products />
+</Route>
+```
+
+we write
+
+```js
+<Route path="/products" element={<Products />} />
+```
+
+because all the routes are exact by default in react router v6.
+
+for us to use the react router v5 matching routes feature in react router v6 we need to add the "\*" at the end of the route.
+like for the below route
+
+```js
+<Route path="/products" element={<Products />} />
+```
+
+we write
+
+```js
+<Route path="/products/*" element={<Products />} />
+```
