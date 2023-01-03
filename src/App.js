@@ -10,18 +10,10 @@ function App() {
       <MainHeader />
       <main>
         <Routes>
-          <Route path="/" exact>
-            {/* <Redirect to="/welcome" /> */}
-          </Route>
-          <Route path="/welcome">
-            <Welcome />
-          </Route>
-          <Route path="/products" exact>
-            <Products />
-          </Route>
-          <Route path="/products/:productId">
-            <ProductDetail />
-          </Route>
+          <Route path="/">{/* <Redirect to="/welcome" /> */}</Route>
+          <Route path="/welcome" element={<Welcome />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:productId" element={<ProductDetail />} />
         </Routes>
       </main>
     </div>
