@@ -980,3 +980,31 @@ we write
   Welcome
 </NavLink>
 ```
+
+now about the `<Redirect />` component
+
+for the below code
+
+```js
+<Redirect to="/welcome" />
+```
+
+we write
+
+```js
+<Navigate to="/welcome" />
+```
+
+Now the Redirect component is replaced by the Navigate component.
+
+so for
+
+```js
+<Route path="/">
+  <Redirect to="/welcome" />
+</Route>
+```
+
+```js
+<Route path="/" element={<Navigate replace to="/welcome" />} />
+```
