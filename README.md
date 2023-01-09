@@ -868,7 +868,7 @@ history.push({
 npm install react-router-dom@6
 ```
 
-2. updated the code to use the new react router v6 syntax. by replacing <Switch> with <Routes>
+2. updated the code to use the new react router v6 syntax. by replacing `<Switch>` with `<Routes>`
 
 ```js
 <Switch>
@@ -908,11 +908,11 @@ to this
 
 for just switch component
 
-now about the <BrowserRouter>
+now about the `<BrowserRouter>`
 
-- <BrowserRouter> component wrapper remains same as before.
+- `<BrowserRouter>` component wrapper remains same as before.
 
-now about the <Route> component
+now about the `<Route>` component
 
 for
 
@@ -944,7 +944,7 @@ we write
 
 because all the routes are exact by default in react router v6.
 
-for us to use the react router v5 matching routes feature in react router v6 we need to add the "\*" at the end of the route.
+for us to use the react router v5 matching routes feature in react router v6 we need to add the "/\*" at the end of the route.
 like for the below route
 
 ```js
@@ -955,4 +955,28 @@ we write
 
 ```js
 <Route path="/products/*" element={<Products />} />
+```
+
+Now about the `<Link>` component
+for the below code
+
+```js
+<NavLink activeClassName={classes.active} to="/welcome">
+  Welcome
+</NavLink>
+```
+
+we write
+
+```js
+// over here we are using the Navlink component from react router v6 and using the className
+// instead of the activeClassName property. and the benefit of using the className property
+// is that we can use the navData object to get the isActive state of the link and then we
+// can use the isActive state to add the active class to the link.
+<NavLink
+  className={(navData) => (navData.isActive ? classes.active : "")}
+  to="/welcome"
+>
+  Welcome
+</NavLink>
 ```
