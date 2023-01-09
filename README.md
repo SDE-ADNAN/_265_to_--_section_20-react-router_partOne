@@ -1008,3 +1008,21 @@ so for
 ```js
 <Route path="/" element={<Navigate replace to="/welcome" />} />
 ```
+
+#Imp U have to wrap each `Route` with `Routes` component also if there's only one single route. like this.
+
+this :
+
+```js
+<Route path="/welcome/new-user">
+  <p>Welcome, new user!</p>
+</Route>
+```
+
+becomes :
+
+```js
+<Routes>
+  <Route path="/welcome/new-user" element={<p>Welcome, new user!</p>} />
+</Routes>
+```
